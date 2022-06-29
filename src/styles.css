@@ -1,0 +1,163 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.login-btn,
+.register-btn {
+  font-size: 1.5rem;
+  padding: 30px 55px;
+}
+
+.register {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\board.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\login-image.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.welcome {
+  min-height: 100%;
+  width: 100%;
+  background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\welcome-img.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.timer {
+  font-size: 20px;
+}
+
+.quiz {
+  min-height: 100%;
+  /* TO GIVE HEIGHT TO CHILD OF A MIN-HEIGHT PAREN */
+  display: flex;
+  /*  */
+  width: 100%;
+  text-align: left;
+  background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\quiz-image.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.quiz-container {
+  height: 100%;
+}
+
+.header {
+  min-width: 100%;
+  min-height: 40%;
+}
+
+.header div {
+  border: 4px solid white;
+}
+
+.questions {
+  width: 100%;
+  min-height: 45%;
+}
+
+.question {
+  flex-basis: 50%;
+}
+
+.question button {
+  border: 3px solid transparent;
+  font-size: 18px;
+  width: 100%;
+  height: 100%;
+}
+
+.question button:hover {
+  background-color: coral !important;
+  color: darkmagenta !important;
+}
+.question button:focus {
+  border: 3px solid red;
+}
+
+.results-page {
+  border: 10px solid saddlebrown;
+  background-color: bisque;
+}
+
+.result-text {
+  font-size: 28px;
+}
+
+.btn-back-welcome {
+  left: 0;
+  top: 20%;
+}
+
+.leader-board {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\leader-board-img-2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media only screen and (min-width: 768px) {
+  .register .container {
+    position: relative;
+  }
+  .welcome {
+    position: relative;
+  }
+  .btn-back-welcome {
+    position: absolute;
+    left: 30;
+  }
+}
+
+@media (max-width: 768px) {
+  .question {
+    flex-basis: 100%;
+  }
+
+  .questions .row {
+    margin-left: 5px;
+    margin-right: 0;
+  }
+}
