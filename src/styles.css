@@ -52,6 +52,18 @@ code {
   background-size: cover;
 }
 
+.register-success {
+  width: 40%;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 150px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  border: 10px solid black;
+}
+
 .welcome {
   min-height: 100%;
   width: 100%;
@@ -159,5 +171,8 @@ code {
   .questions .row {
     margin-left: 5px;
     margin-right: 0;
+  }
+  .register-success {
+    width: 90%;
   }
 }
