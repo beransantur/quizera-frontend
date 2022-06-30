@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import * as Icon from "react-bootstrap-icons";
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import TextInput from "./TextInput";
@@ -10,7 +10,7 @@ const Register = () => {
   const validationSchema = Yup.object({
     name: Yup.string().min(3, "*Minimum 3 characters").required("*Required"),
     email: Yup.string().email("*Invalid email format").required("*Required"),
-    password: Yup.string().required("*Required"),
+    password: Yup.string().min(3, "*Min 3 characters").required("*Required"),
   });
 
   const [isRegisterSuccess, setIsRegisterSuccess] = useState(null);

@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import * as Icon from "react-bootstrap-icons";
+import { useContext } from "react";
+import UserContext from "../contexts/UserContext";
 
 const Welcome = () => {
+  const { user } = useContext(UserContext);
+
   return (
     <div className="welcome">
       <div className="container">
@@ -9,7 +13,7 @@ const Welcome = () => {
           <div className="d-flex justify-content-center">
             <div className="col col-12 p-5 position-relative">
               <h1 className="text-center text-white display-4">
-                Welcome, Beran
+                Welcome, {user.name}
               </h1>
               <button className="btn btn-info position-absolute btn-back-welcome">
                 <Link to={"/"}>

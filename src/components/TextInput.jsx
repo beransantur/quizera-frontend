@@ -1,6 +1,6 @@
 import { ErrorMessage, Field } from "formik";
 
-const TextInput = ({ name, type, className, placeHolder, labelText }) => {
+const TextInput = ({ name, type, placeHolder, labelText }) => {
   return (
     <>
       <label>

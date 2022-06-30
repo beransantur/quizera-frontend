@@ -1,8 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import * as Icon from "react-bootstrap-icons";
+import { Form, Formik } from "formik";
+import * as Yup from "yup";
+import TextInput from "./TextInput";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import UserContext from "../contexts/UserContext";
+import { useContext } from "react";
 
 const Login = () => {
+  const { user, setUser } = useContext(UserContext);
+  console.log(user);
+
+  const validationSchema = Yup.object({
+    email: Yup.string().email("*Invalid email format").required("*Required"),
+    password: Yup.string().min(3, "*Min 3 characters").required("*Required"),
+  });
+  const navigate = useNavigate();
+  const [isLoginSuccess, setIsLoginSuccess] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const onSubmit = async (values, formikProps) => {
+    formikProps.setSubmitting(true);
+
+    const registeredUser = await axios.post(
+      "http://localhost:5000/users/login",
+      values
+    );
+
+    const data = await registeredUser.data;
+    if (data.loggedInUser) {
+      // setIsLoginSuccess(true);
+      // formikProps.status = data.loggedInUser._id;
+      setUser(data.loggedInUser);
+      navigate(`/welcome`);
+    }
+    console.log(data);
+    if (data.error) {
+      setIsLoginSuccess(false);
+      setErrorMessage(data.error);
+    }
+
+    console.log(registeredUser);
+  };
+
   return (
     <div className="login">
       <div class="container">
@@ -19,38 +61,107 @@ const Login = () => {
         <div class="row">
           <div class="col-md-6 offset-md-3">
             <div class="signup-form">
-              <form action="" class="mt-5 border p-4 bg-light shadow">
-                <h4 class="mb-5 text-secondary">Login to your account</h4>
-                <div class="row">
-                  <div class="mb-3 col-md-12">
-                    <label>
-                      Email<span class="text-danger">*</span>
-                    </label>
-                    <input
-                      type="password"
-                      name="password"
-                      class="form-control"
-                      placeholder="Enter Email"
-                    />
-                  </div>
-                  <div class="mb-3 col-md-12">
-                    <label>
-                      Password<span class="text-danger">*</span>
-                    </label>
-                    <input
-                      type="password"
-                      name="confirmpassword"
-                      class="form-control"
-                      placeholder="Enter Password"
-                    />
-                  </div>
-                  <div class="col-md-12">
-                    <Link to={"/welcome"}>
-                      <button class="btn btn-success w-100">Login Now</button>
-                    </Link>
-                  </div>
-                </div>
-              </form>
+              <Formik
+                initialValues={{ name: "", email: "", password: "" }}
+                validationSchema={validationSchema}
+                onSubmit={onSubmit}
+              >
+                {(formik) => {
+                  return (
+                    <>
+                      {isLoginSuccess === true && (
+                        <div className="bg-success text-white position-absolute text-center p-5 register-success">
+                          <Icon.X
+                            style={{
+                              position: " absolute",
+                              left: "25px",
+                              top: "25px",
+                              cursor: "pointer",
+                            }}
+                            size={32}
+                            color={"white"}
+                            onClick={() => {
+                              setIsLoginSuccess(null);
+                              formik.resetForm();
+                            }}
+                          />
+                          <p className="p-3 display-6">
+                            {" "}
+                            You've logged in successfully!
+                          </p>
+                          <p>If you want, you can log go to main menu now!</p>
+                          <Link to={"/welcome"} state={{ _id: formik.status }}>
+                            <button className="btn btn-primary px-5">
+                              Main Menu
+                            </button>
+                          </Link>
+                        </div>
+                      )}
+
+                      {isLoginSuccess === false && (
+                        <div className="bg-danger text-white position-absolute text-center p-5 register-success">
+                          <Icon.X
+                            style={{
+                              position: " absolute",
+                              left: "25px",
+                              top: "25px",
+                              cursor: "pointer",
+                            }}
+                            size={32}
+                            color={"white"}
+                            onClick={() => {
+                              setIsLoginSuccess(null);
+                              formik.resetForm();
+                            }}
+                          />
+                          <p className="p-3 display-6">
+                            {" "}
+                            Unfortunately, {errorMessage} ..
+                          </p>
+                          <p>You can try to log in again..</p>
+                          <button
+                            className="btn btn-secondary px-5"
+                            onClick={() => {
+                              setIsLoginSuccess(null);
+                              formik.resetForm();
+                            }}
+                          >
+                            Ok
+                          </button>
+                        </div>
+                      )}
+                      <Form class="mt-5 border p-4 bg-light shadow">
+                        <h4 class="mb-5 text-secondary">
+                          Login to your account
+                        </h4>
+                        <div class="row">
+                          <div class="mb-3 col-md-12">
+                            <TextInput
+                              name={"email"}
+                              type={"text"}
+                              placeHolder={"Enter Email"}
+                              labelText={"Email"}
+                            />
+                          </div>
+                          <div class="mb-3 col-md-12">
+                            <TextInput
+                              name={"password"}
+                              type={"password"}
+                              placeHolder={"Enter Password"}
+                              labelText={"Password"}
+                            />
+                          </div>
+                          <div class="col-md-12">
+                            <button class="btn btn-success w-100" type="submit">
+                              Login Now
+                            </button>
+                          </div>
+                        </div>
+                      </Form>
+                    </>
+                  );
+                }}
+              </Formik>
             </div>
           </div>
         </div>
