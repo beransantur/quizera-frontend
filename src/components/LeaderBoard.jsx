@@ -7,11 +7,11 @@ const LeaderBoard = () => {
       <div class="container table-responsive py-3">
         <div className="col col-12 p-5 position-relative">
           <h4 className="text-center display-5">Leader Board</h4>
-          <button className="btn btn-info position-absolute btn-back-welcome">
-            <Link to={"/welcome"}>
+          <Link to={"/welcome"}>
+            <button className="btn btn-info position-absolute btn-back-welcome">
               <Icon.ArrowLeft size={30} color={"black"} />
-            </Link>{" "}
-          </button>
+            </button>
+          </Link>{" "}
         </div>{" "}
         <table class="table table-bordered table-hover table-striped bg-white">
           <thead class="table-dark text-center">

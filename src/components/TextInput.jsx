@@ -13,7 +13,7 @@ const TextInput = ({ name, type, placeHolder, labelText }) => {
         class="form-control"
         placeholder={placeHolder}
       />
-      <ErrorMessage name={name} component="div" />
+      <ErrorMessage name={name} component="div" className="error-msg" />
     </>
   );
 };

@@ -120,9 +120,12 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section id="user" className="p-5">
+      <section id="user" className="p-5 user-section">
         <div className="container">
-          <h3 className="p-5 text-center"> In order to start the quiz.. </h3>
+          <h3 className="p-5 text-center text-white">
+            {" "}
+            In order to start the quiz..{" "}
+          </h3>
           <div className="row">
             <div class="col-md mb-6 mb-md-0 mb-2 ">
               <div class="card text-center bg-dark text-light p-3">

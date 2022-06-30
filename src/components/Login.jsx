@@ -51,11 +51,11 @@ const Login = () => {
         <div className="d-flex justify-content-center">
           <div className="col col-12 col-md-6 position-relative">
             <h1 className="text-center text-white">Login</h1>
-            <button className="btn btn-info position-absolute top-0 ">
-              <Link to={"/"}>
+            <Link to={"/"}>
+              <button className="btn btn-info position-absolute top-0 ">
                 <Icon.ArrowLeft size={30} color={"black"} />
-              </Link>
-            </button>
+              </button>
+            </Link>
           </div>
         </div>
         <div class="row">
@@ -152,7 +152,15 @@ const Login = () => {
                             />
                           </div>
                           <div class="col-md-12">
-                            <button class="btn btn-success w-100" type="submit">
+                            <button
+                              class="btn btn-success w-100"
+                              type="submit"
+                              disabled={
+                                formik.isSubmitting ||
+                                !formik.dirty ||
+                                !formik.isValid
+                              }
+                            >
                               Login Now
                             </button>
                           </div>
