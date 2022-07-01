@@ -1,28 +1,49 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Answer from "./Answer";
 import Results from "./Results";
 import { Field, Form, Formik } from "formik";
+import UserContext from "../contexts/UserContext";
+import { useContext } from "react";
+import * as Icon from "react-bootstrap-icons";
 
 const Quiz = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [questions, setQuestions] = useState([]);
-  const [isQuizFinished, setIsQuizFinished] = useState(false);
   const [time, setTime] = useState(15);
   const [timerOn, setTimerOn] = useState(true);
   const [score, setScore] = useState(0);
 
+  const navigate = useNavigate();
   const onSubmit = (values, submitProps) => {};
+  const { user, setUser } = useContext(UserContext);
 
+  console.log(user);
   const getQuestionsFromBackend = async () => {
     const res = await axios.get(
       "http://localhost:5000/questions/getQuestionsFromDb"
     );
-    const data = res.data;
+    const data = await res.data;
 
     setQuestions(data);
   };
+
+  const createLeaderBoardMember = async () => {
+    const res = await axios.post(
+      "http://localhost:5000/leaderBoard/createLeaderBoardMember",
+      { _id: user._id, score: score }
+    );
+    const data = await res.data;
+    console.log(data);
+  };
+  const setTimer = () => {
+    setTime(15);
+    setTimerOn(true);
+  };
+  useEffect(() => {
+    setTimer();
+  }, [currentIndex]);
 
   useEffect(() => {
     let interval = null;
@@ -49,9 +70,6 @@ const Quiz = () => {
       <div className="container quiz-container">
         {questions.length > 0 ? (
           <>
-            {isQuizFinished && (
-              <Results setIsQuizFinished={setIsQuizFinished} score={score} />
-            )}
             {/* HEADER */}
 
             <Formik initialValues={{ selectedAnswer: "" }} onSubmit={onSubmit}>
@@ -66,8 +84,9 @@ const Quiz = () => {
                             __html: questions[currentIndex].question,
                           }}
                         />
-                        <span className="btn btn-info position-absolute top-0 mt-1 p-3 timer">
-                          seconds:{" "}
+                        <span className="btn btn-info position-absolute top-0 mt-1 p-2 timer">
+                          <Icon.Stopwatch style={{ marginBottom: "5px" }} />
+                          <span style={{ margin: "3px" }}>:</span>
                           {Math.floor(time) <= 0
                             ? 0
                             : Math.floor(time) === 16
@@ -79,10 +98,9 @@ const Quiz = () => {
 
                     {/* QUESTIONS */}
                     <section className="questions my-3">
-                      <div className="row p-3 g-5 d-flex justify-content-center align-items-center">
+                      <div className="row p-1 g-5 d-flex justify-content-center align-items-center">
                         <Field name="selectedAnswer">
                           {({ field }) => {
-                            console.log(field);
                             return (
                               <>
                                 {questions[currentIndex].answers.map(
@@ -110,7 +128,7 @@ const Quiz = () => {
                           {formik?.submitCount % 2 === 0 ? (
                             <button
                               name="input1"
-                              className="bg-primary text-white p-4 mb-2 px-0 w-100"
+                              className="bg-primary text-white p-3 mb-2 px-0 w-100"
                               type="submit"
                               onClick={() => {
                                 setTimerOn(false);
@@ -133,11 +151,9 @@ const Quiz = () => {
                           ) : currentIndex !== 9 ? (
                             <button
                               name="input2"
-                              className="bg-primary text-white p-4 mb-2 px-0 w-100"
+                              className="bg-primary text-white p-3 mb-2 px-0 w-100"
                               type="submit"
                               onClick={() => {
-                                setTime(15);
-                                setTimerOn(true);
                                 setCurrentIndex((prev) => prev + 1);
                                 formik.resetForm();
                               }}
@@ -147,9 +163,14 @@ const Quiz = () => {
                           ) : (
                             <button
                               name="input3"
-                              className="bg-primary text-white p-4 mb-2 px-0 w-100"
+                              className="bg-primary text-white p-3 mb-2 px-0 w-100"
                               type="submit"
-                              onClick={() => setIsQuizFinished(true)}
+                              onClick={() => {
+                                createLeaderBoardMember();
+                                navigate("/results", {
+                                  state: { score: score },
+                                });
+                              }}
                             >
                               Finish Quiz
                             </button>

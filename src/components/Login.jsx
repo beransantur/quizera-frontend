@@ -36,7 +36,6 @@ const Login = () => {
       setUser(data.loggedInUser);
       navigate(`/welcome`);
     }
-    console.log(data);
     if (data.error) {
       setIsLoginSuccess(false);
       setErrorMessage(data.error);
@@ -69,35 +68,6 @@ const Login = () => {
                 {(formik) => {
                   return (
                     <>
-                      {isLoginSuccess === true && (
-                        <div className="bg-success text-white position-absolute text-center p-5 register-success">
-                          <Icon.X
-                            style={{
-                              position: " absolute",
-                              left: "25px",
-                              top: "25px",
-                              cursor: "pointer",
-                            }}
-                            size={32}
-                            color={"white"}
-                            onClick={() => {
-                              setIsLoginSuccess(null);
-                              formik.resetForm();
-                            }}
-                          />
-                          <p className="p-3 display-6">
-                            {" "}
-                            You've logged in successfully!
-                          </p>
-                          <p>If you want, you can log go to main menu now!</p>
-                          <Link to={"/welcome"} state={{ _id: formik.status }}>
-                            <button className="btn btn-primary px-5">
-                              Main Menu
-                            </button>
-                          </Link>
-                        </div>
-                      )}
-
                       {isLoginSuccess === false && (
                         <div className="bg-danger text-white position-absolute text-center p-5 register-success">
                           <Icon.X

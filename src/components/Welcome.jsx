@@ -1,25 +1,109 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Icon from "react-bootstrap-icons";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import UserContext from "../contexts/UserContext";
 
 const Welcome = () => {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
+  const [isInfoClicked, setIsInfoClicked] = useState(null);
+  const navigate = useNavigate();
 
   return (
     <div className="welcome">
+      <div className="bg-secondary">
+        <div className="container ">
+          {/* NAVBAR */}
+          <nav class="navbar navbar-expand-lg bg-secondary navbar-light welcome-nav">
+            <div class="container">
+              <span class="navbar-brand quizera-brand">Quizera</span>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                  <span
+                    class="nav-link info-icon span-link"
+                    onClick={() => {
+                      setIsInfoClicked(true);
+                    }}
+                  >
+                    <Icon.InfoCircle
+                      className="info-icon"
+                      style={{ marginRight: "5px", marginBottom: "5px" }}
+                    />
+                    INFO
+                  </span>
+                  <span
+                    class="nav-link span-link"
+                    onClick={() => {
+                      setUser(null);
+                      navigate("/");
+                    }}
+                  >
+                    <Icon.ReplyFill
+                      style={{ marginRight: "3px", marginBottom: "5px" }}
+                    />{" "}
+                    LOGOUT
+                  </span>
+                </div>
+              </div>
+            </div>
+          </nav>{" "}
+        </div>
+      </div>
       <div className="container">
-        <div className="d-flex justify-content-space-between flex-column p-5">
+        <div className="d-flex justify-content-space-between flex-column p-3">
+          {isInfoClicked && (
+            <div className="bg-secondary text-white position-absolute text-center p-5 info-clicked">
+              <Icon.X
+                style={{
+                  position: " absolute",
+                  left: "25px",
+                  top: "25px",
+                  cursor: "pointer",
+                }}
+                size={32}
+                color={"white"}
+                onClick={() => {
+                  setIsInfoClicked(null);
+                }}
+              />
+              <h5 className="p-3 info-header">
+                {" "}
+                Quizera is a quiz application which gets its question from open
+                trivia api
+              </h5>
+              <p>
+                It's grading system is based on time and correctness of the
+                questions
+              </p>
+              <p>It has a very easy grading system;</p>
+              <p style={{ display: "block" }}>
+                formula: (1 or 0)*time(seconds) for example:
+              </p>
+              <p>8 seconds correct answer = 8 point</p>
+              <p>8 seconds incorrect answer = 0 point</p>
+              <p>0 seconds correct answer = 0 point</p>
+              <button
+                className="btn btn-primary px-5"
+                onClick={() => {
+                  setIsInfoClicked(false);
+                }}
+              >
+                OK
+              </button>
+            </div>
+          )}
           <div className="d-flex justify-content-center">
-            <div className="col col-12 p-5 position-relative">
-              <h1 className="text-center text-white display-4">
+            <div className="col col-12 p-4 position-relative">
+              <h1 className="text-center text-black display-3">
                 Welcome, {user.name}
               </h1>
-              <button className="btn btn-info position-absolute btn-back-welcome">
-                <Link to={"/"}>
-                  <Icon.ArrowLeft size={30} color={"black"} />
-                </Link>{" "}
-              </button>
             </div>
           </div>{" "}
           <div className="row pb-5">
@@ -51,7 +135,7 @@ const Welcome = () => {
 
                   <p class="card-text lead">
                     Here you can view the current leaderboard and see your
-                    ranking!!
+                    competition with other competitors!!!
                   </p>
                   <Link to={"/leaderBoard"}>
                     <button class="btn btn-primary login-btn text-dark">

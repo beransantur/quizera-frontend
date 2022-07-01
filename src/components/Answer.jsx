@@ -2,10 +2,8 @@ const Answer = ({ answer, submitCount, correctAnswer, formik, field }) => {
   let specialClassName = "bg-success text-white p-4 answer-button";
   if (submitCount % 2 !== 0) {
     if (answer === correctAnswer) {
-      console.log("Correct answer");
       specialClassName += " true-answer";
     } else {
-      console.log("False answer");
       specialClassName += " false-answer";
     }
   }

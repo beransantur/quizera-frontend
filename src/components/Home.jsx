@@ -44,12 +44,12 @@ const Home = () => {
             <h1 className="p-3 text-center">Welcome to Quizera!</h1>
             <div className="d-flex flex-column justify-content-between align-items-center">
               <p className="lead p-4 text-center text-md-start">
-                Quizera is a web application to test you skills out in computer
-                science! It has a grading method based on time an accuracy of
+                Quizera is a web application to test your skills in computer
+                science! It has a grading method based on time and accuracy of
                 the question and it has a leaderboard that you can compare
                 yourself with other users. In order to play the game you have to
-                register and after login to the system in order the keep track
-                of the leader board.
+                register to the sytem and then login to the system in order to
+                play.
               </p>
               <div class="col-12 col-md-6 mx-auto m-5">
                 <img
@@ -69,11 +69,11 @@ const Home = () => {
               <h4 className="py-4">Test your skills!</h4>
               <p>
                 The whole point of Quizera is to test your skills see if you
-                know well about
+                know well about computer science!
               </p>
               <p className="lead">
                 You can always go back to your mistakes and improve them. Don't
-                forget that computer science is a hard topic to master
+                forget that computer science is a hard topic to master.
               </p>
             </div>
             <div class="col-12 col-md-6 mx-auto p-md-5 p-3">
@@ -132,7 +132,7 @@ const Home = () => {
                 <div class="card-body">
                   <h3 class="card-title">Register</h3>
                   <div class="h1 my-3">
-                    <i class="bi bi-person-square"></i>
+                    <i class="bi bi-people"></i>
                   </div>
 
                   <p class="card-text lead">
@@ -153,7 +153,7 @@ const Home = () => {
                 <div class="card-body">
                   <h3 class="card-title">Login</h3>
                   <div class="h1 my-3">
-                    <i class="bi bi-people"></i>
+                    <i class="bi bi-person-square"></i>
                   </div>
 
                   <p class="card-text lead">
