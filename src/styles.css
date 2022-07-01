@@ -1,3 +1,5 @@
+/*********************************** GENERAL ***********************************/
+
 html {
   height: 100%;
   width: 100%;
@@ -15,43 +17,25 @@ body {
   background-color: brown;
 }
 
-#root {
-  height: 100%;
-  width: 100%;
-}
-
-.error-msg {
-  color: red;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-.login-btn,
-.register-btn {
-  font-size: 1.5rem;
-  padding: 30px 55px;
+#root {
+  height: 100%;
+  width: 100%;
 }
 
+/*********************************** HOME ***********************************/
+
+/*********************************** REGISTER ***********************************/
 .register {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\board.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.login {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\login-image.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -67,6 +51,42 @@ code {
   right: 0;
   text-align: center;
   border: 10px solid black;
+}
+
+/*********************************** LOGIN ***********************************/
+.login {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\login-image.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-btn,
+.register-btn {
+  font-size: 1.5rem;
+  padding: 30px 55px;
+}
+
+.error-msg {
+  color: red;
+}
+
+/*********************************** WELCOME ***********************************/
+.welcome {
+  min-height: 100%;
+  width: 100%;
+  background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\welcome-img-2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.welcome-nav {
+  font-size: 23px;
 }
 
 .info-clicked {
@@ -88,15 +108,6 @@ code {
   color: aquamarine !important;
 }
 
-.welcome {
-  min-height: 100%;
-  width: 100%;
-  background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\welcome-img-2.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .info-icon {
   margin-right: 40px;
 }
@@ -109,18 +120,10 @@ code {
   font-size: 24px;
 }
 
-.timer {
-  border: 4px solid white;
-  background-color: rgb(233, 167, 167) !important;
-  font-size: 20px;
-  color: white !important;
-  position: absolute;
-  left: 5px;
-}
-
+/*********************************** QUIZ ***********************************/
 .quiz {
   height: 100%;
-  /* TO GIVE HEIGHT TO CHILD OF A MIN-HEIGHT PAREN */
+  /* TO GIVE HEIGHT TO CHILD OF A MIN-HEIGHT PARENT */
   /*  */
   width: 100%;
   text-align: left;
@@ -132,20 +135,70 @@ code {
 
 .quiz-container {
   height: 100%;
+  width: 80%;
 }
 
-.header {
+.question {
   min-width: 100%;
   min-height: 40%;
 }
 
-.header div {
+.question div {
   border: 4px solid white;
 }
 
-.questions {
+.timer {
+  border: 4px solid white;
+  background-color: rgb(233, 167, 167) !important;
+  font-size: 20px;
+  color: white !important;
+  position: absolute;
+  left: 5px;
+}
+
+form {
+  height: 100%;
+}
+
+.answers {
   width: 100%;
   min-height: 45%;
+}
+
+.answer {
+  flex-basis: 50%;
+}
+
+.answer button {
+  border: 5px solid transparent;
+  background-color: white !important;
+  color: black !important;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.answer button:hover {
+  margin-top: 0px !important;
+  -moz-box-shadow: 0px 0px 4px 4px yellow !important;
+  -webkit-box-shadow: 0px 0px 4px 10px yellow !important;
+  box-shadow: 0px 0px 4px 1px yellow !important;
+}
+.answer button:focus {
+  border: 5px solid yellow;
+}
+
+.answer button:disabled {
+  pointer-events: none !important;
+}
+
+.next-btn {
+  font-size: 25px;
+}
+
+.next-btn button {
+  background-color: purple !important;
+  border: 5px solid transparent;
 }
 
 .next-btn button:hover {
@@ -157,35 +210,27 @@ code {
   background-color: transparent !important;
 }
 
-.welcome-nav {
-  font-size: 23px;
+/*********************************** ANSWER ***********************************/
+.true-answer {
+  border: 5px solid green !important;
 }
 
-.question {
-  flex-basis: 50%;
+.false-answer {
+  border: 5px solid red !important;
 }
 
-.question button {
-  border: 5px solid transparent;
-  background-color: white !important;
-  color: black !important;
-  font-size: 20px;
-  width: 100%;
-  height: 100%;
-}
-
-.question button:hover {
-  margin-top: 0px !important;
-  -moz-box-shadow: 0px 0px 4px 4px yellow !important;
-  -webkit-box-shadow: 0px 0px 4px 10px yellow !important;
-  box-shadow: 0px 0px 4px 1px yellow !important;
-}
-.question button:focus {
-  border: 5px solid yellow;
-}
-
-.question button:disabled {
-  pointer-events: none !important;
+/*********************************** RESULTS ***********************************/
+.results {
+  height: 100vh;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\results-imgg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .results-page {
@@ -208,14 +253,7 @@ code {
   top: 20%;
 }
 
-.next-btn {
-  font-size: 25px;
-}
-
-.next-btn button {
-  background-color: purple !important;
-  border: 5px solid transparent;
-}
+/*********************************** LEADER-BOARD ***********************************/
 
 .leader-board {
   height: 100vh;
@@ -226,34 +264,9 @@ code {
   background-size: cover;
 }
 
-.results {
-  height: 100vh;
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\results-imgg.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-form {
-  height: 100%;
-}
-
 .loading-spinner {
   font-size: 20px;
   padding: 90px;
-}
-
-.true-answer {
-  border: 5px solid green !important;
-}
-
-.false-answer {
-  border: 5px solid red !important;
 }
 
 @media only screen and (min-width: 768px) {
@@ -270,20 +283,27 @@ form {
 }
 
 @media (max-width: 768px) {
-  .question {
-    flex-basis: 100%;
-  }
-
   .quiz {
     background: none;
   }
-  body {
-    background-color: brown;
+
+  .quiz-container {
+    width: 100%;
   }
-  .questions .row {
+
+  .question {
+    margin-top: 5px;
+  }
+
+  .answers .row {
     margin-left: 5px;
     margin-right: 0;
   }
+
+  .answer {
+    flex-basis: 100%;
+  }
+
   .register-success {
     width: 90%;
   }

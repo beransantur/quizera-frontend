@@ -4,10 +4,9 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      {" "}
-      <div className="bg-dark">
+      {/******** NAVBAR ********/}
+      <section className="bg-dark">
         <div className="container ">
-          {/* NAVBAR */}
           <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container">
               <a class="navbar-brand" href="#home">
@@ -37,7 +36,9 @@ const Home = () => {
             </div>
           </nav>{" "}
         </div>
-      </div>
+      </section>
+
+      {/******** HOME ********/}
       <section className="bg-dark p-5 text-light " id="home">
         <div className="container">
           <div className="d-flex flex-column justify-content-center align-items-center">
@@ -62,6 +63,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/******** INFO ********/}
       <section className="bg-primary text-white">
         <div className="container">
           <div className="d-md-flex justify-content-between text-center text-md-start">
@@ -86,8 +89,10 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/*******  CONTACT ********/}
       <section id="contact" className="bg-dark p-5">
-        <div className="container  text-white text-center">
+        <div className="container text-white text-center">
           <div class="col-12 col-md-6 mx-auto p-md-5">
             <img
               src={require("../images/contact-me.jpg")}
@@ -95,7 +100,6 @@ const Home = () => {
               alt=""
             />
           </div>
-
           <div className="row">
             <div className="col-12 col-md-6">
               <a
@@ -120,7 +124,9 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section id="user" className="p-5 user-section">
+
+      {/******** USER MANAGEMENT ********/}
+      <section id="user" className="p-5">
         <div className="container">
           <h3 className="p-5 text-center text-white">
             {" "}
@@ -169,11 +175,13 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <footer class="mt-3 p-2 bg-dark text-white text-center position-relative">
+
+      {/******** FOOTER ********/}
+      <section class="mt-3 p-2 bg-dark text-white text-center position-relative">
         <div class="container">
           <p class="lead">Copyright &copy; 2021 Beran Santur</p>
         </div>
-      </footer>
+      </section>
     </>
   );
 };

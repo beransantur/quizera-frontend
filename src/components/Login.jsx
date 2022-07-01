@@ -10,16 +10,17 @@ import UserContext from "../contexts/UserContext";
 import { useContext } from "react";
 
 const Login = () => {
+  const [isLoginSuccess, setIsLoginSuccess] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
   const { user, setUser } = useContext(UserContext);
-  console.log(user);
-
+  const navigate = useNavigate();
+  {
+    /******** FORMIK-ARGUMENTS ********/
+  }
   const validationSchema = Yup.object({
     email: Yup.string().email("*Invalid email format").required("*Required"),
     password: Yup.string().min(3, "*Min 3 characters").required("*Required"),
   });
-  const navigate = useNavigate();
-  const [isLoginSuccess, setIsLoginSuccess] = useState(null);
-  const [errorMessage, setErrorMessage] = useState("");
 
   const onSubmit = async (values, formikProps) => {
     formikProps.setSubmitting(true);
@@ -31,8 +32,6 @@ const Login = () => {
 
     const data = await registeredUser.data;
     if (data.loggedInUser) {
-      // setIsLoginSuccess(true);
-      // formikProps.status = data.loggedInUser._id;
       setUser(data.loggedInUser);
       navigate(`/welcome`);
     }
@@ -40,8 +39,6 @@ const Login = () => {
       setIsLoginSuccess(false);
       setErrorMessage(data.error);
     }
-
-    console.log(registeredUser);
   };
 
   return (

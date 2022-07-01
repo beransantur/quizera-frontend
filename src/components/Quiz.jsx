@@ -16,10 +16,9 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
 
   const navigate = useNavigate();
-  const onSubmit = (values, submitProps) => {};
   const { user, setUser } = useContext(UserContext);
+  const onSubmit = (values, submitProps) => {};
 
-  console.log(user);
   const getQuestionsFromBackend = async () => {
     const res = await axios.get(
       "http://localhost:5000/questions/getQuestionsFromDb"
@@ -37,14 +36,22 @@ const Quiz = () => {
     const data = await res.data;
     console.log(data);
   };
+
   const setTimer = () => {
     setTime(15);
     setTimerOn(true);
   };
+
+  {
+    /******** WHEN QUESTION CHANGES TIME RESETS ********/
+  }
   useEffect(() => {
     setTimer();
   }, [currentIndex]);
 
+  {
+    /******** UPDATE TIME EVERY SECOND ********/
+  }
   useEffect(() => {
     let interval = null;
     if (time === 0) {
@@ -70,13 +77,12 @@ const Quiz = () => {
       <div className="container quiz-container">
         {questions.length > 0 ? (
           <>
-            {/* HEADER */}
-
             <Formik initialValues={{ selectedAnswer: "" }} onSubmit={onSubmit}>
               {(formik) => {
                 return (
                   <Form>
-                    <section className="header d-flex align-items-center justify-content-center p-3">
+                    {/* QUESTION */}
+                    <section className="question d-flex align-items-center justify-content-center">
                       <div className="col col-12 position-relative bg-secondary p-2 pt-3">
                         <h3
                           className="text-center text-white p-5 my-2 "
@@ -97,7 +103,7 @@ const Quiz = () => {
                     </section>
 
                     {/* QUESTIONS */}
-                    <section className="questions my-3">
+                    <section className="answers my-3">
                       <div className="row p-1 g-5 d-flex justify-content-center align-items-center">
                         <Field name="selectedAnswer">
                           {({ field }) => {
@@ -138,9 +144,9 @@ const Quiz = () => {
                                 if (
                                   formik.values.selectedAnswer ===
                                     questions[currentIndex].correct_answer &&
-                                  Math.floor(time) >= 0
+                                  time >= 0
                                 ) {
-                                  calculatedScore += Math.floor(time) * 1;
+                                  calculatedScore += time * 1;
                                 }
                                 setScore((prev) => prev + calculatedScore);
                               }}

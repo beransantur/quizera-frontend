@@ -8,7 +8,7 @@ const Answer = ({ answer, submitCount, correctAnswer, formik, field }) => {
     }
   }
   return (
-    <div className="col-6 col-md-12 question">
+    <div className="col-6 col-md-12 answer">
       <button
         type="button"
         {...field}
@@ -16,7 +16,6 @@ const Answer = ({ answer, submitCount, correctAnswer, formik, field }) => {
           formik.setFieldValue("selectedAnswer", answer);
         }}
         className={specialClassName}
-        name="currentAnswer"
         disabled={submitCount % 2 !== 0}
         dangerouslySetInnerHTML={{ __html: answer }}
       />

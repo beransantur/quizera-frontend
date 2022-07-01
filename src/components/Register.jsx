@@ -7,13 +7,18 @@ import axios from "axios";
 import TextInput from "./TextInput";
 
 const Register = () => {
+  const [isRegisterSuccess, setIsRegisterSuccess] = useState(null);
+
+  {
+    /******** FORMIK-ARGUMENTS ********/
+  }
   const validationSchema = Yup.object({
     name: Yup.string().min(3, "*Minimum 3 characters").required("*Required"),
     email: Yup.string().email("*Invalid email format").required("*Required"),
-    password: Yup.string().min(3, "*Min 3 characters").required("*Required"),
+    password: Yup.string()
+      .min(3, "*Minimum 3 characters")
+      .required("*Required"),
   });
-
-  const [isRegisterSuccess, setIsRegisterSuccess] = useState(null);
 
   const onSubmit = async (values, formikProps) => {
     formikProps.setSubmitting(true);
@@ -37,8 +42,6 @@ const Register = () => {
     if (data.userAlreadyExists) {
       setIsRegisterSuccess(false);
     }
-
-    console.log(registeredUser);
   };
 
   return (
