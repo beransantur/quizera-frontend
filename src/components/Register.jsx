@@ -29,7 +29,7 @@ const Register = () => {
     };
 
     const registeredUser = await axios.post(
-      "http://localhost:5000/users/register",
+      "https://quizera-backend.herokuapp.com/users/register",
       createdUser
     );
 

@@ -21,7 +21,7 @@ const Quiz = () => {
 
   const getQuestionsFromBackend = async () => {
     const res = await axios.get(
-      "http://localhost:5000/questions/getQuestionsFromDb"
+      "https://quizera-backend.herokuapp.com/questions/getQuestionsFromDb"
     );
     const data = await res.data;
 
@@ -30,7 +30,7 @@ const Quiz = () => {
 
   const createLeaderBoardMember = async () => {
     const res = await axios.post(
-      "http://localhost:5000/leaderBoard/createLeaderBoardMember",
+      "https://quizera-backend.herokuapp.com/leaderBoard/createLeaderBoardMember",
       { _id: user._id, score: score }
     );
     const data = await res.data;

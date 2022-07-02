@@ -7,7 +7,9 @@ const LeaderBoard = () => {
   const [leaderBoardMembers, setLeaderBoardMembers] = useState([]);
 
   const getLeaderBoardMembers = async () => {
-    const res = await axios.get("http://localhost:5000/leaderBoard");
+    const res = await axios.get(
+      "https://quizera-backend.herokuapp.com/leaderBoard"
+    );
     let data = await res.data;
     data.sort((a, b) => {
       return b.score - a.score;
