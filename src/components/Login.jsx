@@ -26,7 +26,7 @@ const Login = () => {
     formikProps.setSubmitting(true);
 
     const registeredUser = await axios.post(
-      "http://localhost:5000/users/login",
+      "https://quizera-backend.herokuapp.com/users/login",
       values
     );
 
