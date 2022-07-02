@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <>
+    <div className="home">
       {/******** NAVBAR ********/}
       <section className="bg-dark">
         <div className="container ">
-          <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+          <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
             <div class="container">
               <a class="navbar-brand" href="#home">
-                Quizera
+                <Icon.Quora size={45} />
               </a>
               <button
                 class="navbar-toggler"
@@ -42,7 +42,7 @@ const Home = () => {
       <section className="bg-dark p-5 text-light " id="home">
         <div className="container">
           <div className="d-flex flex-column justify-content-center align-items-center">
-            <h1 className="p-3 text-center">Welcome to Quizera!</h1>
+            <h1 className="p-5 text-center ">Welcome to Quizera!</h1>
             <div className="d-flex flex-column justify-content-between align-items-center">
               <p className="lead p-4 text-center text-md-start">
                 Quizera is a web application to test your skills in computer
@@ -69,8 +69,8 @@ const Home = () => {
         <div className="container">
           <div className="d-md-flex justify-content-between text-center text-md-start">
             <div className="p-5">
-              <h4 className="py-4">Test your skills!</h4>
-              <p>
+              <h4 className="py-4 display-5">Test your skills!</h4>
+              <p className="home-info-text">
                 The whole point of Quizera is to test your skills see if you
                 know well about computer science!
               </p>
@@ -182,7 +182,7 @@ const Home = () => {
           <p class="lead">Copyright &copy; 2021 Beran Santur</p>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
