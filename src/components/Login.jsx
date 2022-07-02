@@ -12,11 +12,9 @@ import { useContext } from "react";
 const Login = () => {
   const [isLoginSuccess, setIsLoginSuccess] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
-  {
-    /******** FORMIK-ARGUMENTS ********/
-  }
+  /******** FORMIK-ARGUMENTS ********/
   const validationSchema = Yup.object({
     email: Yup.string().email("*Invalid email format").required("*Required"),
     password: Yup.string().min(3, "*Min 3 characters").required("*Required"),

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Answer from "./Answer";
-import Results from "./Results";
 import { Field, Form, Formik } from "formik";
 import UserContext from "../contexts/UserContext";
 import { useContext } from "react";
@@ -16,7 +15,7 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
 
   const navigate = useNavigate();
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const onSubmit = (values, submitProps) => {};
 
   const getQuestionsFromBackend = async () => {
@@ -33,8 +32,7 @@ const Quiz = () => {
       "https://quizera-backend.herokuapp.com/leaderBoard/createLeaderBoardMember",
       { _id: user._id, score: score }
     );
-    const data = await res.data;
-    console.log(data);
+    await res.data;
   };
 
   const setTimer = () => {
@@ -42,16 +40,12 @@ const Quiz = () => {
     setTimerOn(true);
   };
 
-  {
-    /******** WHEN QUESTION CHANGES TIME RESETS ********/
-  }
+  /******** WHEN QUESTION CHANGES TIME RESETS ********/
   useEffect(() => {
     setTimer();
   }, [currentIndex]);
 
-  {
-    /******** UPDATE TIME EVERY SECOND ********/
-  }
+  /******** UPDATE TIME EVERY SECOND ********/
   useEffect(() => {
     let interval = null;
     if (time === 0) {

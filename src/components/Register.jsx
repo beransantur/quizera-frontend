@@ -9,9 +9,7 @@ import TextInput from "./TextInput";
 const Register = () => {
   const [isRegisterSuccess, setIsRegisterSuccess] = useState(null);
 
-  {
-    /******** FORMIK-ARGUMENTS ********/
-  }
+  /******** FORMIK-ARGUMENTS ********/
   const validationSchema = Yup.object({
     name: Yup.string().min(3, "*Minimum 3 characters").required("*Required"),
     email: Yup.string().email("*Invalid email format").required("*Required"),
@@ -34,7 +32,6 @@ const Register = () => {
     );
 
     const data = await registeredUser.data;
-    console.log(data);
     if (data.createdUser) {
       setIsRegisterSuccess(true);
     }
@@ -68,7 +65,6 @@ const Register = () => {
                 onSubmit={onSubmit}
               >
                 {(formik) => {
-                  console.log(formik.values);
                   return (
                     <>
                       {isRegisterSuccess === true && (

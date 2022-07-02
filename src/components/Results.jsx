@@ -1,10 +1,7 @@
 import * as Icon from "react-bootstrap-icons";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import UserContext from "../contexts/UserContext";
-import { useContext } from "react";
 
 const Results = ({ score }) => {
-  console.log(score);
   const location = useLocation();
   const navigate = useNavigate();
   return (
