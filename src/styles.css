@@ -89,6 +89,10 @@ code {
   font-size: 23px;
 }
 
+.welcome-nav-bg {
+  background-color: burlywood !important;
+}
+
 .info-clicked {
   width: 40%;
   position: absolute;
@@ -302,6 +306,10 @@ form {
 
   .answer {
     flex-basis: 100%;
+  }
+
+  .answer button:focus {
+    border: 5px solid slategrey;
   }
 
   .register-success {

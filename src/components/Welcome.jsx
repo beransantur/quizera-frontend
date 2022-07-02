@@ -10,12 +10,14 @@ const Welcome = () => {
 
   return (
     <div className="welcome">
-      <div className="bg-secondary">
-        <div className="container ">
+      <div className="bg-dark">
+        <div className="container">
           {/* NAVBAR */}
-          <nav class="navbar navbar-expand-lg bg-secondary navbar-light welcome-nav">
+          <nav class="navbar navbar-expand-lg bg-dark navbar-dark  welcome-nav">
             <div class="container">
-              <span class="navbar-brand quizera-brand">Quizera</span>
+              <span class="navbar-brand quizera-brand">
+                <Icon.Quora size={50} />
+              </span>
               <button
                 class="navbar-toggler"
                 type="button"
@@ -108,7 +110,7 @@ const Welcome = () => {
           </div>{" "}
           <div className="row pb-5">
             <div class="col-md-6 mb-6 mb-md-0 mb-2">
-              <div class="card text-center bg-primary text-light p-3">
+              <div class="card text-center bg-secondary text-white p-3">
                 <div class="card-body">
                   <h3 class="card-title mb-0">Quiz</h3>
                   <Icon.Quora className="mt-4 p-3" size={98} color={"red"} />
