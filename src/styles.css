@@ -305,7 +305,10 @@ form {
   .answer button:focus {
     border: 10px solid slategrey;
   }
-
+  /*  on mobile focus not working  */
+  .answer button:hover {
+    border: 10px solid slategrey;
+  }
   .register-success {
     width: 90%;
   }
