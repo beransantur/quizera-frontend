@@ -35,7 +35,7 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\board.jpg");
+  background-image: url("C:\software-projects\personal-projects\projects\quizera-frontend\src\images\board.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -59,7 +59,7 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\login-image.jpg");
+  background-image: url("C:\software-projects\personal-projects\projects\quizera-frontend\src\images\login-image.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -79,7 +79,7 @@ code {
 .welcome {
   min-height: 100%;
   width: 100%;
-  background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\welcome-img-2.jpg");
+  background-image: url("C:\software-projects\personal-projects\projects\quizera-frontend\src\images\welcome-img-2.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -127,7 +127,7 @@ code {
   /*  */
   width: 100%;
   text-align: left;
-  background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\quiz-image.jpg");
+  background-image: url("C:\software-projects\personal-projects\projects\quizera-frontend\src\images\quiz-image.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -227,7 +227,7 @@ form {
   left: 0;
   right: 0;
   margin: 0 auto;
-  background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\results-imgg.jpg");
+  background-image: url("C:\software-projects\personal-projects\projects\quizera-frontend\src\images\results-imgg.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -258,7 +258,7 @@ form {
 .leader-board {
   height: 100vh;
   width: 100vw;
-  background-image: url("C:\software-projects\personal-projects\projects\quizera\frontend\src\images\leader-board-img-2.jpg");
+  background-image: url("C:\software-projects\personal-projects\projects\quizera-frontend\src\images\leader-board-img-2.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
