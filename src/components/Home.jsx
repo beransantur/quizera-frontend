@@ -179,7 +179,7 @@ const Home = () => {
       {/******** FOOTER ********/}
       <section class="mt-3 p-2 bg-dark text-white text-center position-relative">
         <div class="container">
-          <p class="lead">Copyright &copy; 2021 Beran Santur</p>
+          <p class="lead">Copyright &copy; 2022 Beran Santur</p>
         </div>
       </section>
     </div>
