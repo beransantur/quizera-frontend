@@ -163,8 +163,8 @@ const Home = () => {
                   </div>
 
                   <p class="card-text lead">
-                    If you've already registered to our system you can click
-                    below to login to our system.
+                    If you've already registered to our system you can click the
+                    button below to login to our system.
                   </p>
                   <Link to={"/login"}>
                     <button class="btn btn-danger login-btn">Login</button>

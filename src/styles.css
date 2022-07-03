@@ -214,6 +214,28 @@ form {
   background-color: transparent !important;
 }
 
+/*********************************** TIME-EXPIRED ***********************************/
+
+.time-expired {
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  color: white;
+  position: absolute;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.time-expired-btn {
+  width: 100%;
+  border: solid 3px red;
+  color: white;
+}
+
 /*********************************** ANSWER ***********************************/
 .true-answer {
   border: 10px solid green !important;
@@ -320,5 +342,11 @@ form {
   }
   .info-clicked {
     width: 90%;
+  }
+  .time-expired {
+    width: 70%;
+  }
+  .time-expired-text {
+    font-size: 20px;
   }
 }

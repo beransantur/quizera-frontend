@@ -1,7 +1,7 @@
 import * as Icon from "react-bootstrap-icons";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
-const Results = ({ score }) => {
+const Results = () => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
@@ -25,7 +25,7 @@ const Results = ({ score }) => {
             </p>
             <p>
               I hope you've learned something new today. If you would like to
-              play again button is on the below
+              play again button is below
               <Icon.EmojiSmile size={40} style={{ marginLeft: "10px" }} />
             </p>
             <button
