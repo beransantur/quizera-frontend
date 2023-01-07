@@ -8,7 +8,7 @@ const LeaderBoard = () => {
 
   const getLeaderBoardMembers = async () => {
     const res = await axios.get(
-      "https://quizera-backend.herokuapp.com/leaderBoard"
+      "/leaderBoard"
     );
     let data = await res.data;
     data.sort((a, b) => {
