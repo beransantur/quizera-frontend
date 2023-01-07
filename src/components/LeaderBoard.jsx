@@ -8,7 +8,7 @@ const LeaderBoard = () => {
 
   const getLeaderBoardMembers = async () => {
     const res = await axios.get(
-      "/leaderBoard"
+        process.env.REACT_APP_BACKEND_REQUEST_URL + "/leaderBoard"
     );
     let data = await res.data;
     data.sort((a, b) => {

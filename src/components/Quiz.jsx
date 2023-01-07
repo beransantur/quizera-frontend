@@ -21,7 +21,7 @@ const Quiz = () => {
 
   const getQuestionsFromBackend = async () => {
     const res = await axios.get(
-      "/questions/getQuestionsFromDb"
+        process.env.REACT_APP_BACKEND_REQUEST_URL + "/questions/getQuestionsFromDb"
     );
     const data = await res.data;
 
@@ -30,7 +30,7 @@ const Quiz = () => {
 
   const createLeaderBoardMember = async () => {
     const res = await axios.post(
-      "/leaderBoard/createLeaderBoardMember",
+        process.env.REACT_APP_BACKEND_REQUEST_URL + "/leaderBoard/createLeaderBoardMember",
       { _id: user._id, score: score }
     );
     await res.data;

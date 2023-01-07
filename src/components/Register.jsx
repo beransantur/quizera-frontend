@@ -27,7 +27,7 @@ const Register = () => {
     };
 
     const registeredUser = await axios.post(
-      "/users/register",
+        process.env.REACT_APP_BACKEND_REQUEST_URL + "/users/register",
       createdUser
     );
 

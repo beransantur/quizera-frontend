@@ -24,7 +24,7 @@ const Login = () => {
     formikProps.setSubmitting(true);
 
     const registeredUser = await axios.post(
-      "/users/login",
+      process.env.REACT_APP_BACKEND_REQUEST_URL + "/users/login",
       values
     );
 
